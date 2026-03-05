@@ -1,4 +1,4 @@
-# CopyDC Legal Web
+# Copy Legal Web
 
 Static legal site for Discord verification.
 
@@ -17,3 +17,4 @@ Both pages include English and Spanish. English is default.
 4. Use:
    - `https://<your-domain>/terms`
    - `https://<your-domain>/privacy`
+

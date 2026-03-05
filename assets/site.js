@@ -1,23 +1,23 @@
 (function () {
-  const STORAGE_KEY = "copydc_legal_lang";
+  const STORAGE_KEY = "copy_legal_lang";
   const SUPPORTED = ["en", "es"];
 
   const common = {
     en: {
-      brand: "CopyDC Legal Center",
+      brand: "Copy Legal Center",
       nav_home: "Home",
       nav_terms: "Terms",
       nav_privacy: "Privacy",
       lang_label: "Language",
-      footer_note: "Public legal pages for CopyDC.",
+      footer_note: "Public legal pages for Copy.",
     },
     es: {
-      brand: "Centro Legal CopyDC",
+      brand: "Centro Legal Copy",
       nav_home: "Inicio",
       nav_terms: "Terminos",
       nav_privacy: "Privacidad",
       lang_label: "Idioma",
-      footer_note: "Paginas legales publicas para CopyDC.",
+      footer_note: "Paginas legales publicas para Copy.",
     },
   };
 
@@ -165,3 +165,4 @@
     init,
   };
 })();
+
