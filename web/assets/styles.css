@@ -1,0 +1,351 @@
+:root {
+  --bg-soft: #f8f2e8;
+  --bg-deep: #d6efe5;
+  --paper: rgba(255, 255, 255, 0.78);
+  --paper-strong: rgba(255, 255, 255, 0.92);
+  --ink: #1f2b2c;
+  --muted: #5e6a6b;
+  --line: rgba(20, 60, 52, 0.12);
+  --brand: #0d8b75;
+  --brand-2: #f07a3f;
+  --shadow: 0 18px 45px rgba(14, 47, 43, 0.14);
+  --radius-xl: 26px;
+  --radius-lg: 18px;
+  --radius-md: 12px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: "Source Serif 4", "Times New Roman", serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 12% 12%, rgba(240, 122, 63, 0.12), transparent 42%),
+    radial-gradient(circle at 88% 18%, rgba(13, 139, 117, 0.16), transparent 38%),
+    linear-gradient(145deg, var(--bg-soft), var(--bg-deep));
+  line-height: 1.65;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.orb {
+  position: fixed;
+  z-index: 0;
+  border-radius: 999px;
+  pointer-events: none;
+  filter: blur(6px);
+}
+
+.orb-a {
+  width: 360px;
+  height: 360px;
+  background: rgba(240, 122, 63, 0.16);
+  top: -130px;
+  right: -130px;
+}
+
+.orb-b {
+  width: 260px;
+  height: 260px;
+  background: rgba(13, 139, 117, 0.14);
+  left: -90px;
+  bottom: 10vh;
+}
+
+.shell {
+  position: relative;
+  z-index: 1;
+  width: min(1080px, 92vw);
+  margin: 0 auto;
+  padding: 26px 0 38px;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--paper);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--ink);
+  font-family: "Sora", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.brand-mark {
+  width: 36px;
+  height: 36px;
+  border-radius: 11px;
+  display: grid;
+  place-items: center;
+  font-size: 0.82rem;
+  color: #fff;
+  background: linear-gradient(135deg, var(--brand), #0f6a63);
+  box-shadow: 0 10px 22px rgba(12, 108, 95, 0.32);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.nav a {
+  text-decoration: none;
+  color: var(--ink);
+  font-family: "Sora", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+
+.nav a:hover,
+.nav a:focus-visible {
+  background: rgba(13, 139, 117, 0.1);
+  border-color: rgba(13, 139, 117, 0.22);
+  transform: translateY(-1px);
+}
+
+.lang-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "Sora", sans-serif;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.lang-wrap select {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--paper-strong);
+  color: var(--ink);
+  font-family: "Sora", sans-serif;
+  font-size: 0.8rem;
+  padding: 6px 30px 6px 10px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.lang-wrap select:focus {
+  border-color: rgba(13, 139, 117, 0.45);
+  box-shadow: 0 0 0 3px rgba(13, 139, 117, 0.16);
+}
+
+.hero {
+  margin-top: 24px;
+  padding: 34px;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--line);
+  background: var(--paper);
+  backdrop-filter: blur(8px);
+  box-shadow: var(--shadow);
+  animation: rise-in 0.75s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.kicker {
+  margin: 0 0 8px;
+  font-family: "Sora", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-weight: 700;
+  font-size: 0.72rem;
+  color: var(--brand);
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Sora", sans-serif;
+  line-height: 1.2;
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(1.8rem, 4vw, 2.65rem);
+  margin-top: 4px;
+}
+
+h2 {
+  font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+  margin-bottom: 10px;
+}
+
+.lead {
+  margin: 14px 0 0;
+  max-width: 68ch;
+  color: var(--muted);
+  font-size: 1.02rem;
+}
+
+.updated {
+  margin-top: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(13, 139, 117, 0.2);
+  background: rgba(13, 139, 117, 0.08);
+  color: #144a47;
+  font-family: "Sora", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.grid {
+  margin-top: 20px;
+  display: grid;
+  gap: 16px;
+}
+
+.grid.two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.panel {
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line);
+  background: var(--paper-strong);
+  box-shadow: var(--shadow);
+  padding: 22px;
+}
+
+.panel p {
+  margin: 0 0 12px;
+  color: #334142;
+}
+
+.panel p:last-child {
+  margin-bottom: 0;
+}
+
+.panel ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.panel li {
+  margin-bottom: 8px;
+  color: #334142;
+}
+
+.panel li:last-child {
+  margin-bottom: 0;
+}
+
+.cta {
+  margin-top: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-family: "Sora", sans-serif;
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  padding: 10px 14px;
+  color: #ffffff;
+  background: linear-gradient(130deg, var(--brand), #0f6d64);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+  box-shadow: 0 14px 22px rgba(11, 92, 81, 0.25);
+}
+
+.cta.alt {
+  background: linear-gradient(130deg, var(--brand-2), #d1662f);
+  box-shadow: 0 14px 22px rgba(145, 74, 34, 0.25);
+}
+
+.cta:hover,
+.cta:focus-visible {
+  transform: translateY(-2px);
+  filter: saturate(1.08);
+}
+
+.footer {
+  margin-top: 20px;
+  color: #4c5a5b;
+  font-size: 0.9rem;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 880px) {
+  .topbar {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .grid.two {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding: 26px 20px;
+  }
+
+  .panel {
+    padding: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero,
+  .reveal,
+  .reveal.is-visible,
+  .cta,
+  .nav a {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}

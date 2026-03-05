@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CopyDC Privacy Policy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <div class="orb orb-a"></div>
+  <div class="orb orb-b"></div>
+
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="../" data-localized-link>
+        <span class="brand-mark">CD</span>
+        <span data-i18n="brand">CopyDC Legal Center</span>
+      </a>
+
+      <nav class="nav" aria-label="Main navigation">
+        <a href="../" data-localized-link data-i18n="nav_home">Home</a>
+        <a href="../terms/" data-localized-link data-i18n="nav_terms">Terms</a>
+        <a href="./" data-localized-link data-i18n="nav_privacy">Privacy</a>
+      </nav>
+
+      <label class="lang-wrap" for="lang-select">
+        <span data-i18n="lang_label">Language</span>
+        <select id="lang-select" aria-label="Language selector">
+          <option value="en">English</option>
+          <option value="es">Espanol</option>
+        </select>
+      </label>
+    </header>
+
+    <main>
+      <section class="hero">
+        <p class="kicker" data-i18n="privacy_kicker">CopyDC Bot</p>
+        <h1 data-i18n="privacy_title">Privacy Policy</h1>
+        <p class="lead" data-i18n="privacy_subtitle">
+          This policy explains what data CopyDC processes, what is stored, and how data can be managed.
+        </p>
+        <p class="updated" data-i18n="privacy_updated">Last updated: March 5, 2026</p>
+      </section>
+
+      <section class="grid">
+        <article class="panel reveal">
+          <h2 data-i18n="privacy_scope_h">1. Scope</h2>
+          <p data-i18n="privacy_scope_p1">
+            This policy applies to the CopyDC Discord bot as currently implemented in the active codebase loaded by main.py.
+          </p>
+          <p data-i18n="privacy_scope_p2">
+            It covers bot behavior in Discord servers and limited owner-only operations.
+          </p>
+        </article>
+
+        <article class="panel reveal">
+          <h2 data-i18n="privacy_collect_h">2. Data Stored in SQLite</h2>
+          <ul>
+            <li data-i18n="privacy_collect_l1">Server and config identifiers: guild IDs, guild names, channel IDs, role IDs, and module settings.</li>
+            <li data-i18n="privacy_collect_l2">Counting module state: channel ID, current number, last user ID, and high score fields.</li>
+            <li data-i18n="privacy_collect_l3">Auto reaction settings: trigger phrases and configured emoji lists per guild.</li>
+            <li data-i18n="privacy_collect_l4">Boost role settings and optional boost log channel IDs.</li>
+            <li data-i18n="privacy_collect_l5">Vanity and clan tag settings, including configured codes, role mapping, and embed templates.</li>
+          </ul>
+        </article>
+
+        <article class="panel reveal">
+          <h2 data-i18n="privacy_runtime_h">3. Data Processed in Real Time</h2>
+          <ul>
+            <li data-i18n="privacy_runtime_l1">Message content is read in real time for configured features such as auto reactions, counting channels, and auto thread creation.</li>
+            <li data-i18n="privacy_runtime_l2">Presence/custom status data is processed for vanity role checks, and member update events are processed for boost and clan workflows.</li>
+            <li data-i18n="privacy_runtime_l3">Attachments referenced in emoji/sticker commands are read to upload or convert files, then sent to Discord APIs.</li>
+            <li data-i18n="privacy_runtime_l4">CopyDC does not intentionally persist full message text or attachment binaries to SQLite as part of normal operation.</li>
+          </ul>
+        </article>
+
+        <article class="panel reveal">
+          <h2 data-i18n="privacy_external_h">4. External Requests and Data Sharing</h2>
+          <ul>
+            <li data-i18n="privacy_external_l1">For clan tag features, CopyDC performs authenticated requests to Discord API endpoint /api/v9/users/{user_id} to read clan metadata.</li>
+            <li data-i18n="privacy_external_l2">For emoji and sticker copy/get features, CopyDC fetches media from Discord CDN URLs.</li>
+            <li data-i18n="privacy_external_l3">CopyDC does not sell personal data and does not intentionally disclose data to unrelated third parties.</li>
+          </ul>
+        </article>
+
+        <article class="panel reveal">
+          <h2 data-i18n="privacy_logs_h">5. Logs and Diagnostics</h2>
+          <ul>
+            <li data-i18n="privacy_logs_l1">If logging module is enabled, command errors and bot events may be written to logs/bot.log on the host environment.</li>
+            <li data-i18n="privacy_logs_l2">DB health diagnostics track aggregate traffic counts (messages, commands, presence updates, member updates) and database performance metrics.</li>
+            <li data-i18n="privacy_logs_l3">Diagnostics are restricted to owner-only admin commands.</li>
+          </ul>
+        </article>
+
+        <article class="panel reveal">
+          <h2 data-i18n="privacy_retention_h">6. Retention</h2>
+          <ul>
+            <li data-i18n="privacy_retention_l1">Configuration data is retained while the bot is in use, unless removed by command or operator action.</li>
+            <li data-i18n="privacy_retention_l2">Not all tables are auto-purged immediately when a guild removes the bot; cleanup can require manual operator action.</li>
+            <li data-i18n="privacy_retention_l3">Server admins may request removal of stored configuration related to their guild.</li>
+          </ul>
+        </article>
+
+        <article class="panel reveal">
+          <h2 data-i18n="privacy_security_h">7. Security</h2>
+          <p data-i18n="privacy_security_p1">
+            Access to owner-only modules is restricted by owner ID checks. Bot token and infrastructure security depend on host environment controls.
+          </p>
+          <p data-i18n="privacy_security_p2">
+            No internet-facing security control can guarantee zero risk. Administrators should review granted permissions and logs regularly.
+          </p>
+        </article>
+
+        <article class="panel reveal">
+          <h2 data-i18n="privacy_rights_h">8. User and Server Controls</h2>
+          <ul>
+            <li data-i18n="privacy_rights_l1">Server admins can disable or reset many features directly via bot commands (for example reaction, vanity, clan tag, and counting settings).</li>
+            <li data-i18n="privacy_rights_l2">Removing the bot stops new processing in that server.</li>
+            <li data-i18n="privacy_rights_l3">For complete data deletion requests, contact the bot owner through the Discord server where CopyDC is deployed.</li>
+          </ul>
+        </article>
+
+        <article class="panel reveal">
+          <h2 data-i18n="privacy_children_h">9. Children</h2>
+          <p data-i18n="privacy_children_p1">
+            CopyDC is intended for Discord users and communities that meet Discord minimum age and platform rules.
+          </p>
+        </article>
+
+        <article class="panel reveal">
+          <h2 data-i18n="privacy_changes_h">10. Changes to This Policy</h2>
+          <p data-i18n="privacy_changes_p1">
+            This policy may be updated as features change. The latest version and date published here are authoritative.
+          </p>
+        </article>
+
+        <article class="panel reveal">
+          <h2 data-i18n="privacy_contact_h">11. Contact</h2>
+          <p data-i18n="privacy_contact_p1">
+            For privacy requests or legal questions, contact the bot owner in the Discord server where CopyDC is available.
+          </p>
+        </article>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span data-i18n="footer_note">Public legal pages for CopyDC.</span>
+    </footer>
+  </div>
+
+  <script src="../assets/site.js"></script>
+  <script>
+    window.CopyLegal.init({
+      en: {
+        meta_title: "CopyDC Privacy Policy",
+        privacy_kicker: "CopyDC Bot",
+        privacy_title: "Privacy Policy",
+        privacy_subtitle: "This policy explains what data CopyDC processes, what is stored, and how data can be managed.",
+        privacy_updated: "Last updated: March 5, 2026",
+
+        privacy_scope_h: "1. Scope",
+        privacy_scope_p1: "This policy applies to the CopyDC Discord bot as currently implemented in the active codebase loaded by main.py.",
+        privacy_scope_p2: "It covers bot behavior in Discord servers and limited owner-only operations.",
+
+        privacy_collect_h: "2. Data Stored in SQLite",
+        privacy_collect_l1: "Server and config identifiers: guild IDs, guild names, channel IDs, role IDs, and module settings.",
+        privacy_collect_l2: "Counting module state: channel ID, current number, last user ID, and high score fields.",
+        privacy_collect_l3: "Auto reaction settings: trigger phrases and configured emoji lists per guild.",
+        privacy_collect_l4: "Boost role settings and optional boost log channel IDs.",
+        privacy_collect_l5: "Vanity and clan tag settings, including configured codes, role mapping, and embed templates.",
+
+        privacy_runtime_h: "3. Data Processed in Real Time",
+        privacy_runtime_l1: "Message content is read in real time for configured features such as auto reactions, counting channels, and auto thread creation.",
+        privacy_runtime_l2: "Presence/custom status data is processed for vanity role checks, and member update events are processed for boost and clan workflows.",
+        privacy_runtime_l3: "Attachments referenced in emoji/sticker commands are read to upload or convert files, then sent to Discord APIs.",
+        privacy_runtime_l4: "CopyDC does not intentionally persist full message text or attachment binaries to SQLite as part of normal operation.",
+
+        privacy_external_h: "4. External Requests and Data Sharing",
+        privacy_external_l1: "For clan tag features, CopyDC performs authenticated requests to Discord API endpoint /api/v9/users/{user_id} to read clan metadata.",
+        privacy_external_l2: "For emoji and sticker copy/get features, CopyDC fetches media from Discord CDN URLs.",
+        privacy_external_l3: "CopyDC does not sell personal data and does not intentionally disclose data to unrelated third parties.",
+
+        privacy_logs_h: "5. Logs and Diagnostics",
+        privacy_logs_l1: "If logging module is enabled, command errors and bot events may be written to logs/bot.log on the host environment.",
+        privacy_logs_l2: "DB health diagnostics track aggregate traffic counts (messages, commands, presence updates, member updates) and database performance metrics.",
+        privacy_logs_l3: "Diagnostics are restricted to owner-only admin commands.",
+
+        privacy_retention_h: "6. Retention",
+        privacy_retention_l1: "Configuration data is retained while the bot is in use, unless removed by command or operator action.",
+        privacy_retention_l2: "Not all tables are auto-purged immediately when a guild removes the bot; cleanup can require manual operator action.",
+        privacy_retention_l3: "Server admins may request removal of stored configuration related to their guild.",
+
+        privacy_security_h: "7. Security",
+        privacy_security_p1: "Access to owner-only modules is restricted by owner ID checks. Bot token and infrastructure security depend on host environment controls.",
+        privacy_security_p2: "No internet-facing security control can guarantee zero risk. Administrators should review granted permissions and logs regularly.",
+
+        privacy_rights_h: "8. User and Server Controls",
+        privacy_rights_l1: "Server admins can disable or reset many features directly via bot commands (for example reaction, vanity, clan tag, and counting settings).",
+        privacy_rights_l2: "Removing the bot stops new processing in that server.",
+        privacy_rights_l3: "For complete data deletion requests, contact the bot owner through the Discord server where CopyDC is deployed.",
+
+        privacy_children_h: "9. Children",
+        privacy_children_p1: "CopyDC is intended for Discord users and communities that meet Discord minimum age and platform rules.",
+
+        privacy_changes_h: "10. Changes to This Policy",
+        privacy_changes_p1: "This policy may be updated as features change. The latest version and date published here are authoritative.",
+
+        privacy_contact_h: "11. Contact",
+        privacy_contact_p1: "For privacy requests or legal questions, contact the bot owner in the Discord server where CopyDC is available.",
+      },
+      es: {
+        meta_title: "CopyDC Politica de Privacidad",
+        privacy_kicker: "Bot CopyDC",
+        privacy_title: "Politica de Privacidad",
+        privacy_subtitle: "Esta politica explica que datos procesa CopyDC, que se guarda y como se pueden gestionar esos datos.",
+        privacy_updated: "Ultima actualizacion: 5 de marzo de 2026",
+
+        privacy_scope_h: "1. Alcance",
+        privacy_scope_p1: "Esta politica aplica al bot de Discord CopyDC tal como esta implementado actualmente en el codigo cargado por main.py.",
+        privacy_scope_p2: "Cubre el comportamiento del bot en servidores de Discord y operaciones limitadas solo para owner.",
+
+        privacy_collect_h: "2. Datos guardados en SQLite",
+        privacy_collect_l1: "Identificadores de servidor y configuracion: guild IDs, nombres de guild, channel IDs, role IDs y ajustes de modulos.",
+        privacy_collect_l2: "Estado del modulo counting: channel ID, numero actual, ultimo user ID y campos de high score.",
+        privacy_collect_l3: "Ajustes de auto reactions: frases trigger y listas de emojis configuradas por guild.",
+        privacy_collect_l4: "Ajustes de boost roles y channel IDs opcionales para logs de boost.",
+        privacy_collect_l5: "Ajustes de vanity y clan tag, incluyendo codigos configurados, mapeo de roles y plantillas de embeds.",
+
+        privacy_runtime_h: "3. Datos procesados en tiempo real",
+        privacy_runtime_l1: "El contenido de mensajes se lee en tiempo real para funciones configuradas como auto reactions, counting y creacion automatica de hilos.",
+        privacy_runtime_l2: "Datos de presence/custom status se procesan para chequeos de vanity role, y eventos member update para flujos de boost y clan.",
+        privacy_runtime_l3: "Adjuntos referenciados en comandos de emoji/sticker se leen para subir o convertir archivos y luego enviarlos a APIs de Discord.",
+        privacy_runtime_l4: "CopyDC no guarda intencionalmente texto completo de mensajes ni binarios de adjuntos en SQLite durante operacion normal.",
+
+        privacy_external_h: "4. Requests externas y comparticion de datos",
+        privacy_external_l1: "Para funciones de clan tag, CopyDC hace requests autenticadas al endpoint de Discord API /api/v9/users/{user_id} para leer metadatos de clan.",
+        privacy_external_l2: "Para funciones de copy/get de emojis y stickers, CopyDC descarga medios desde URLs de Discord CDN.",
+        privacy_external_l3: "CopyDC no vende datos personales ni divulga intencionalmente datos a terceros no relacionados.",
+
+        privacy_logs_h: "5. Logs y diagnosticos",
+        privacy_logs_l1: "Si el modulo de logging esta habilitado, errores de comandos y eventos del bot pueden escribirse en logs/bot.log en el entorno host.",
+        privacy_logs_l2: "Diagnosticos de DB health registran conteos agregados de trafico (mensajes, comandos, presence updates, member updates) y metricas de rendimiento de base de datos.",
+        privacy_logs_l3: "Los diagnosticos estan restringidos a comandos admin solo de owner.",
+
+        privacy_retention_h: "6. Retencion",
+        privacy_retention_l1: "Los datos de configuracion se conservan mientras el bot este en uso, salvo que se eliminen por comando o accion del operador.",
+        privacy_retention_l2: "No todas las tablas se limpian automaticamente al instante cuando un guild quita el bot; la limpieza puede requerir accion manual del operador.",
+        privacy_retention_l3: "Admins de servidor pueden solicitar eliminacion de configuracion almacenada relacionada con su guild.",
+
+        privacy_security_h: "7. Seguridad",
+        privacy_security_p1: "El acceso a modulos solo de owner esta restringido por verificaciones de owner ID. La seguridad del bot token y de la infraestructura depende de controles del entorno host.",
+        privacy_security_p2: "Ningun control de seguridad conectado a internet garantiza riesgo cero. Los administradores deben revisar permisos otorgados y logs de forma regular.",
+
+        privacy_rights_h: "8. Controles de usuario y servidor",
+        privacy_rights_l1: "Admins de servidor pueden desactivar o resetear muchas funciones directamente con comandos del bot (por ejemplo reaction, vanity, clan tag y counting).",
+        privacy_rights_l2: "Quitar el bot detiene nuevo procesamiento en ese servidor.",
+        privacy_rights_l3: "Para solicitudes de borrado completo de datos, contacta al owner del bot a traves del servidor de Discord donde esta desplegado CopyDC.",
+
+        privacy_children_h: "9. Menores",
+        privacy_children_p1: "CopyDC esta orientado a usuarios y comunidades de Discord que cumplen la edad minima y reglas de la plataforma Discord.",
+
+        privacy_changes_h: "10. Cambios a esta politica",
+        privacy_changes_p1: "Esta politica puede actualizarse cuando cambien funciones. La version mas reciente y fecha publicadas aqui son las validas.",
+
+        privacy_contact_h: "11. Contacto",
+        privacy_contact_p1: "Para solicitudes de privacidad o dudas legales, contacta al owner del bot en el servidor de Discord donde CopyDC este disponible.",
+      },
+    });
+  </script>
+</body>
+</html>
