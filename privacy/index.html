@@ -57,7 +57,7 @@
         </article>
 
         <article class="panel reveal">
-          <h2 data-i18n="privacy_collect_h">2. Data Stored in SQLite</h2>
+          <h2 data-i18n="privacy_collect_h">2. Data Stored by the Bot</h2>
           <ul>
             <li data-i18n="privacy_collect_l1">Server and config identifiers: guild IDs, guild names, channel IDs, role IDs, and module settings.</li>
             <li data-i18n="privacy_collect_l2">Counting module state: channel ID, current number, last user ID, and high score fields.</li>
@@ -73,7 +73,7 @@
             <li data-i18n="privacy_runtime_l1">Message content is read in real time for configured features such as auto reactions, counting channels, and auto thread creation.</li>
             <li data-i18n="privacy_runtime_l2">Presence/custom status data is processed for vanity role checks, and member update events are processed for boost and clan workflows.</li>
             <li data-i18n="privacy_runtime_l3">Attachments referenced in emoji/sticker commands are read to upload or convert files, then sent to Discord APIs.</li>
-            <li data-i18n="privacy_runtime_l4">Copy does not intentionally persist full message text or attachment binaries to SQLite as part of normal operation.</li>
+            <li data-i18n="privacy_runtime_l4">Copy does not intentionally persist full message text or attachment binaries in stored bot records as part of normal operation.</li>
           </ul>
         </article>
 
@@ -90,7 +90,7 @@
           <h2 data-i18n="privacy_logs_h">5. Logs and Diagnostics</h2>
           <ul>
             <li data-i18n="privacy_logs_l1">If logging module is enabled, command errors and bot events may be written to logs/bot.log on the host environment.</li>
-            <li data-i18n="privacy_logs_l2">DB health diagnostics track aggregate traffic counts (messages, commands, presence updates, member updates) and database performance metrics.</li>
+            <li data-i18n="privacy_logs_l2">Diagnostics may track aggregate traffic counts (messages, commands, presence updates, member updates) and general performance metrics.</li>
             <li data-i18n="privacy_logs_l3">Diagnostics are restricted to owner-only admin commands.</li>
           </ul>
         </article>
@@ -165,7 +165,7 @@
         privacy_scope_p1: "This policy applies to the Copy Discord bot as currently implemented in the active codebase loaded by main.py.",
         privacy_scope_p2: "It covers bot behavior in Discord servers and limited owner-only operations.",
 
-        privacy_collect_h: "2. Data Stored in SQLite",
+        privacy_collect_h: "2. Data Stored by the Bot",
         privacy_collect_l1: "Server and config identifiers: guild IDs, guild names, channel IDs, role IDs, and module settings.",
         privacy_collect_l2: "Counting module state: channel ID, current number, last user ID, and high score fields.",
         privacy_collect_l3: "Auto reaction settings: trigger phrases and configured emoji lists per guild.",
@@ -176,7 +176,7 @@
         privacy_runtime_l1: "Message content is read in real time for configured features such as auto reactions, counting channels, and auto thread creation.",
         privacy_runtime_l2: "Presence/custom status data is processed for vanity role checks, and member update events are processed for boost and clan workflows.",
         privacy_runtime_l3: "Attachments referenced in emoji/sticker commands are read to upload or convert files, then sent to Discord APIs.",
-        privacy_runtime_l4: "Copy does not intentionally persist full message text or attachment binaries to SQLite as part of normal operation.",
+        privacy_runtime_l4: "Copy does not intentionally persist full message text or attachment binaries in stored bot records as part of normal operation.",
 
         privacy_external_h: "4. External Requests and Data Sharing",
         privacy_external_l1: "For clan tag features, Copy performs authenticated requests to Discord API endpoint /api/v9/users/{user_id} to read clan metadata.",
@@ -185,7 +185,7 @@
 
         privacy_logs_h: "5. Logs and Diagnostics",
         privacy_logs_l1: "If logging module is enabled, command errors and bot events may be written to logs/bot.log on the host environment.",
-        privacy_logs_l2: "DB health diagnostics track aggregate traffic counts (messages, commands, presence updates, member updates) and database performance metrics.",
+        privacy_logs_l2: "Diagnostics may track aggregate traffic counts (messages, commands, presence updates, member updates) and general performance metrics.",
         privacy_logs_l3: "Diagnostics are restricted to owner-only admin commands.",
 
         privacy_retention_h: "6. Retention",
@@ -222,7 +222,7 @@
         privacy_scope_p1: "Esta politica aplica al bot de Discord Copy tal como esta implementado actualmente en el codigo cargado por main.py.",
         privacy_scope_p2: "Cubre el comportamiento del bot en servidores de Discord y operaciones limitadas solo para owner.",
 
-        privacy_collect_h: "2. Datos guardados en SQLite",
+        privacy_collect_h: "2. Datos guardados por el bot",
         privacy_collect_l1: "Identificadores de servidor y configuracion: guild IDs, nombres de guild, channel IDs, role IDs y ajustes de modulos.",
         privacy_collect_l2: "Estado del modulo counting: channel ID, numero actual, ultimo user ID y campos de high score.",
         privacy_collect_l3: "Ajustes de auto reactions: frases trigger y listas de emojis configuradas por guild.",
@@ -233,7 +233,7 @@
         privacy_runtime_l1: "El contenido de mensajes se lee en tiempo real para funciones configuradas como auto reactions, counting y creacion automatica de hilos.",
         privacy_runtime_l2: "Datos de presence/custom status se procesan para chequeos de vanity role, y eventos member update para flujos de boost y clan.",
         privacy_runtime_l3: "Adjuntos referenciados en comandos de emoji/sticker se leen para subir o convertir archivos y luego enviarlos a APIs de Discord.",
-        privacy_runtime_l4: "Copy no guarda intencionalmente texto completo de mensajes ni binarios de adjuntos en SQLite durante operacion normal.",
+        privacy_runtime_l4: "Copy no guarda intencionalmente texto completo de mensajes ni binarios de adjuntos en los registros almacenados del bot durante operacion normal.",
 
         privacy_external_h: "4. Requests externas y comparticion de datos",
         privacy_external_l1: "Para funciones de clan tag, Copy hace requests autenticadas al endpoint de Discord API /api/v9/users/{user_id} para leer metadatos de clan.",
@@ -242,7 +242,7 @@
 
         privacy_logs_h: "5. Logs y diagnosticos",
         privacy_logs_l1: "Si el modulo de logging esta habilitado, errores de comandos y eventos del bot pueden escribirse en logs/bot.log en el entorno host.",
-        privacy_logs_l2: "Diagnosticos de DB health registran conteos agregados de trafico (mensajes, comandos, presence updates, member updates) y metricas de rendimiento de base de datos.",
+        privacy_logs_l2: "Los diagnosticos pueden registrar conteos agregados de trafico (mensajes, comandos, presence updates, member updates) y metricas generales de rendimiento.",
         privacy_logs_l3: "Los diagnosticos estan restringidos a comandos admin solo de owner.",
 
         privacy_retention_h: "6. Retencion",
