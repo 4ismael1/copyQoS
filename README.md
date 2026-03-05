@@ -12,7 +12,7 @@ Both pages include English and Spanish. English is default.
 ## Deploy on Vercel
 
 1. Import this repository in Vercel.
-2. Set the Root Directory to `web`.
+2. Leave Root Directory as repository root.
 3. Deploy.
 4. Use:
    - `https://<your-domain>/terms`
