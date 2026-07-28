@@ -42,7 +42,7 @@
         <p class="lead" data-i18n="privacy_subtitle">
           This policy explains what data Copy processes, what is stored, and how data can be managed.
         </p>
-        <p class="updated" data-i18n="privacy_updated">Last updated: March 5, 2026</p>
+        <p class="updated" data-i18n="privacy_updated">Last updated: July 28, 2026</p>
       </section>
 
       <section class="grid">
@@ -64,6 +64,8 @@
             <li data-i18n="privacy_collect_l3">Auto reaction settings: trigger phrases and configured emoji lists per guild.</li>
             <li data-i18n="privacy_collect_l4">Boost role settings and optional boost log channel IDs.</li>
             <li data-i18n="privacy_collect_l5">Vanity and clan tag settings, including configured codes, role mapping, and embed templates.</li>
+            <li data-i18n="privacy_collect_l6">Support case metadata: case, guild, channel and opener IDs, subject, status, timestamps, and private archive message IDs. Raw case messages are not stored in the bot database.</li>
+            <li data-i18n="privacy_collect_l7">Live LFG data: voluntary enrollment and the current game/role assignment. Historical presence, status, and game records are not created.</li>
           </ul>
         </article>
 
@@ -71,18 +73,19 @@
           <h2 data-i18n="privacy_runtime_h">3. Data Processed in Real Time</h2>
           <ul>
             <li data-i18n="privacy_runtime_l1">Message content is read in real time for configured features such as auto reactions, counting channels, and auto thread creation.</li>
-            <li data-i18n="privacy_runtime_l2">Presence/custom status data is processed for vanity role checks, and member update events are processed for boost and clan workflows.</li>
+            <li data-i18n="privacy_runtime_l2">When a support case is closed, its channel history is processed in memory to generate a sanitized transcript that is posted to the server's private Discord archive.</li>
             <li data-i18n="privacy_runtime_l3">Attachments referenced in emoji/sticker commands are read to upload or convert files, then sent to Discord APIs.</li>
-            <li data-i18n="privacy_runtime_l4">Copy does not intentionally persist full message text or attachment binaries in stored bot records as part of normal operation.</li>
+            <li data-i18n="privacy_runtime_l4">Presence/custom status data is processed for configured vanity roles. For Live LFG, Copy acts on Playing activities only for voluntarily enrolled members.</li>
+            <li data-i18n="privacy_runtime_l5">Copy does not persist raw message text, support transcripts, attachment binaries, or presence history in its database.</li>
           </ul>
         </article>
 
         <article class="panel reveal">
           <h2 data-i18n="privacy_external_h">4. External Requests and Data Sharing</h2>
           <ul>
-            <li data-i18n="privacy_external_l1">For clan tag features, Copy performs authenticated requests to Discord API endpoint /api/v9/users/{user_id} to read clan metadata.</li>
+            <li data-i18n="privacy_external_l1">Copy uses Discord's official Gateway and API data to operate configured message, member, clan tag, support case, and Live LFG features.</li>
             <li data-i18n="privacy_external_l2">For emoji and sticker copy/get features, Copy fetches media from Discord CDN URLs.</li>
-            <li data-i18n="privacy_external_l3">Copy does not sell personal data and does not intentionally disclose data to unrelated third parties.</li>
+            <li data-i18n="privacy_external_l3">Copy does not sell personal data, use it for advertising or profiling, or use message or presence data to train AI or machine-learning models.</li>
           </ul>
         </article>
 
@@ -99,15 +102,16 @@
           <h2 data-i18n="privacy_retention_h">6. Retention</h2>
           <ul>
             <li data-i18n="privacy_retention_l1">Configuration data is retained while the bot is in use, unless removed by command or operator action.</li>
-            <li data-i18n="privacy_retention_l2">Not all tables are auto-purged immediately when a guild removes the bot; cleanup can require manual operator action.</li>
-            <li data-i18n="privacy_retention_l3">Server admins may request removal of stored configuration related to their guild.</li>
+            <li data-i18n="privacy_retention_l2">Support transcripts remain inside the administrator-selected private Discord archive for 1 to 90 days and may be deleted earlier by an administrator.</li>
+            <li data-i18n="privacy_retention_l3">Live LFG active assignments are deleted when the activity ends or the member leaves LFG. Enrollment remains only until the member leaves the feature.</li>
+            <li data-i18n="privacy_retention_l4">Stored guild configuration is purged from the bot database when the bot leaves that guild.</li>
           </ul>
         </article>
 
         <article class="panel reveal">
           <h2 data-i18n="privacy_security_h">7. Security</h2>
           <p data-i18n="privacy_security_p1">
-            Access to owner-only modules is restricted by owner ID checks. Bot token and infrastructure security depend on host environment controls.
+            Access to owner-only modules is restricted by owner ID checks. Support archives must be private to @everyone, transcripts are HTML-sanitized, and each transcript includes an integrity hash.
           </p>
           <p data-i18n="privacy_security_p2">
             No internet-facing security control can guarantee zero risk. Administrators should review granted permissions and logs regularly.
@@ -118,7 +122,7 @@
           <h2 data-i18n="privacy_rights_h">8. User and Server Controls</h2>
           <ul>
             <li data-i18n="privacy_rights_l1">Server admins can disable or reset many features directly via bot commands (for example reaction, vanity, clan tag, and counting settings).</li>
-            <li data-i18n="privacy_rights_l2">Removing the bot stops new processing in that server.</li>
+            <li data-i18n="privacy_rights_l2">Members can leave Live LFG with /lfg leave. Server administrators control support retention and can delete archived case records.</li>
             <li data-i18n="privacy_rights_l3">For complete data deletion requests, contact Ismaelpaulino32@gmail.com.</li>
           </ul>
         </article>
@@ -159,7 +163,7 @@
         privacy_kicker: "Copy Bot",
         privacy_title: "Privacy Policy",
         privacy_subtitle: "This policy explains what data Copy processes, what is stored, and how data can be managed.",
-        privacy_updated: "Last updated: March 5, 2026",
+        privacy_updated: "Last updated: July 28, 2026",
 
         privacy_scope_h: "1. Scope",
         privacy_scope_p1: "This policy applies to the Copy Discord bot as currently implemented in the active codebase loaded by main.py.",
@@ -171,17 +175,20 @@
         privacy_collect_l3: "Auto reaction settings: trigger phrases and configured emoji lists per guild.",
         privacy_collect_l4: "Boost role settings and optional boost log channel IDs.",
         privacy_collect_l5: "Vanity and clan tag settings, including configured codes, role mapping, and embed templates.",
+        privacy_collect_l6: "Support case metadata: case, guild, channel and opener IDs, subject, status, timestamps, and private archive message IDs. Raw case messages are not stored in the bot database.",
+        privacy_collect_l7: "Live LFG data: voluntary enrollment and the current game/role assignment. Historical presence, status, and game records are not created.",
 
         privacy_runtime_h: "3. Data Processed in Real Time",
         privacy_runtime_l1: "Message content is read in real time for configured features such as auto reactions, counting channels, and auto thread creation.",
-        privacy_runtime_l2: "Presence/custom status data is processed for vanity role checks, and member update events are processed for boost and clan workflows.",
+        privacy_runtime_l2: "When a support case is closed, its channel history is processed in memory to generate a sanitized transcript that is posted to the server's private Discord archive.",
         privacy_runtime_l3: "Attachments referenced in emoji/sticker commands are read to upload or convert files, then sent to Discord APIs.",
-        privacy_runtime_l4: "Copy does not intentionally persist full message text or attachment binaries in stored bot records as part of normal operation.",
+        privacy_runtime_l4: "Presence/custom status data is processed for configured vanity roles. For Live LFG, Copy acts on Playing activities only for voluntarily enrolled members.",
+        privacy_runtime_l5: "Copy does not persist raw message text, support transcripts, attachment binaries, or presence history in its database.",
 
         privacy_external_h: "4. External Requests and Data Sharing",
-        privacy_external_l1: "For clan tag features, Copy performs authenticated requests to Discord API endpoint /api/v9/users/{user_id} to read clan metadata.",
+        privacy_external_l1: "Copy uses Discord's official Gateway and API data to operate configured message, member, clan tag, support case, and Live LFG features.",
         privacy_external_l2: "For emoji and sticker copy/get features, Copy fetches media from Discord CDN URLs.",
-        privacy_external_l3: "Copy does not sell personal data and does not intentionally disclose data to unrelated third parties.",
+        privacy_external_l3: "Copy does not sell personal data, use it for advertising or profiling, or use message or presence data to train AI or machine-learning models.",
 
         privacy_logs_h: "5. Logs and Diagnostics",
         privacy_logs_l1: "If logging module is enabled, command errors and bot events may be written to logs/bot.log on the host environment.",
@@ -190,16 +197,17 @@
 
         privacy_retention_h: "6. Retention",
         privacy_retention_l1: "Configuration data is retained while the bot is in use, unless removed by command or operator action.",
-        privacy_retention_l2: "Not all tables are auto-purged immediately when a guild removes the bot; cleanup can require manual operator action.",
-        privacy_retention_l3: "Server admins may request removal of stored configuration related to their guild.",
+        privacy_retention_l2: "Support transcripts remain inside the administrator-selected private Discord archive for 1 to 90 days and may be deleted earlier by an administrator.",
+        privacy_retention_l3: "Live LFG active assignments are deleted when the activity ends or the member leaves LFG. Enrollment remains only until the member leaves the feature.",
+        privacy_retention_l4: "Stored guild configuration is purged from the bot database when the bot leaves that guild.",
 
         privacy_security_h: "7. Security",
-        privacy_security_p1: "Access to owner-only modules is restricted by owner ID checks. Bot token and infrastructure security depend on host environment controls.",
+        privacy_security_p1: "Access to owner-only modules is restricted by owner ID checks. Support archives must be private to @everyone, transcripts are HTML-sanitized, and each transcript includes an integrity hash.",
         privacy_security_p2: "No internet-facing security control can guarantee zero risk. Administrators should review granted permissions and logs regularly.",
 
         privacy_rights_h: "8. User and Server Controls",
         privacy_rights_l1: "Server admins can disable or reset many features directly via bot commands (for example reaction, vanity, clan tag, and counting settings).",
-        privacy_rights_l2: "Removing the bot stops new processing in that server.",
+        privacy_rights_l2: "Members can leave Live LFG with /lfg leave. Server administrators control support retention and can delete archived case records.",
         privacy_rights_l3: "For complete data deletion requests, contact Ismaelpaulino32@gmail.com.",
 
         privacy_children_h: "9. Children",
@@ -216,7 +224,7 @@
         privacy_kicker: "Bot Copy",
         privacy_title: "Politica de Privacidad",
         privacy_subtitle: "Esta politica explica que datos procesa Copy, que se guarda y como se pueden gestionar esos datos.",
-        privacy_updated: "Ultima actualizacion: 5 de marzo de 2026",
+        privacy_updated: "Ultima actualizacion: 28 de julio de 2026",
 
         privacy_scope_h: "1. Alcance",
         privacy_scope_p1: "Esta politica aplica al bot de Discord Copy tal como esta implementado actualmente en el codigo cargado por main.py.",
@@ -228,17 +236,20 @@
         privacy_collect_l3: "Ajustes de auto reactions: frases trigger y listas de emojis configuradas por guild.",
         privacy_collect_l4: "Ajustes de boost roles y channel IDs opcionales para logs de boost.",
         privacy_collect_l5: "Ajustes de vanity y clan tag, incluyendo codigos configurados, mapeo de roles y plantillas de embeds.",
+        privacy_collect_l6: "Metadatos de casos de soporte: IDs de caso, servidor, canal y usuario inicial; asunto, estado, fechas e IDs de mensajes del archivo privado. Los mensajes del caso no se guardan en la base de datos del bot.",
+        privacy_collect_l7: "Datos de Live LFG: inscripcion voluntaria y asignacion actual de juego y rol. No se crean historiales de presencia, estados o juegos.",
 
         privacy_runtime_h: "3. Datos procesados en tiempo real",
         privacy_runtime_l1: "El contenido de mensajes se lee en tiempo real para funciones configuradas como auto reactions, counting y creacion automatica de hilos.",
-        privacy_runtime_l2: "Datos de presence/custom status se procesan para chequeos de vanity role, y eventos member update para flujos de boost y clan.",
+        privacy_runtime_l2: "Cuando se cierra un caso de soporte, el historial de ese canal se procesa en memoria para generar un transcript sanitizado que se publica en el archivo privado de Discord del servidor.",
         privacy_runtime_l3: "Adjuntos referenciados en comandos de emoji/sticker se leen para subir o convertir archivos y luego enviarlos a APIs de Discord.",
-        privacy_runtime_l4: "Copy no guarda intencionalmente texto completo de mensajes ni binarios de adjuntos en los registros almacenados del bot durante operacion normal.",
+        privacy_runtime_l4: "Los datos de presence/custom status se procesan para roles vanity configurados. En Live LFG, Copy actua sobre actividades Playing unicamente para miembros inscritos voluntariamente.",
+        privacy_runtime_l5: "Copy no guarda texto crudo de mensajes, transcripts de soporte, binarios de adjuntos ni historiales de presencia en su base de datos.",
 
         privacy_external_h: "4. Requests externas y comparticion de datos",
-        privacy_external_l1: "Para funciones de clan tag, Copy hace requests autenticadas al endpoint de Discord API /api/v9/users/{user_id} para leer metadatos de clan.",
+        privacy_external_l1: "Copy utiliza datos oficiales del Gateway y API de Discord para operar funciones configuradas de mensajes, miembros, clan tags, casos de soporte y Live LFG.",
         privacy_external_l2: "Para funciones de copy/get de emojis y stickers, Copy descarga medios desde URLs de Discord CDN.",
-        privacy_external_l3: "Copy no vende datos personales ni divulga intencionalmente datos a terceros no relacionados.",
+        privacy_external_l3: "Copy no vende datos personales, no los usa para publicidad o perfiles y no usa mensajes o presencia para entrenar modelos de IA o aprendizaje automatico.",
 
         privacy_logs_h: "5. Logs y diagnosticos",
         privacy_logs_l1: "Si el modulo de logging esta habilitado, errores de comandos y eventos del bot pueden escribirse en logs/bot.log en el entorno host.",
@@ -247,16 +258,17 @@
 
         privacy_retention_h: "6. Retencion",
         privacy_retention_l1: "Los datos de configuracion se conservan mientras el bot este en uso, salvo que se eliminen por comando o accion del operador.",
-        privacy_retention_l2: "No todas las tablas se limpian automaticamente al instante cuando un guild quita el bot; la limpieza puede requerir accion manual del operador.",
-        privacy_retention_l3: "Admins de servidor pueden solicitar eliminacion de configuracion almacenada relacionada con su guild.",
+        privacy_retention_l2: "Los transcripts de soporte permanecen dentro del archivo privado de Discord elegido por el administrador entre 1 y 90 dias y pueden eliminarse antes.",
+        privacy_retention_l3: "Las asignaciones activas de Live LFG se eliminan cuando termina la actividad o el miembro sale de LFG. La inscripcion permanece solo hasta abandonar la funcion.",
+        privacy_retention_l4: "La configuracion guardada del servidor se elimina de la base de datos del bot cuando Copy sale de ese servidor.",
 
         privacy_security_h: "7. Seguridad",
-        privacy_security_p1: "El acceso a modulos solo de owner esta restringido por verificaciones de owner ID. La seguridad del bot token y de la infraestructura depende de controles del entorno host.",
+        privacy_security_p1: "El acceso a modulos solo de owner esta restringido por verificaciones de owner ID. Los archivos de soporte deben ser privados para @everyone, los transcripts sanitizan HTML y cada transcript incluye un hash de integridad.",
         privacy_security_p2: "Ningun control de seguridad conectado a internet garantiza riesgo cero. Los administradores deben revisar permisos otorgados y logs de forma regular.",
 
         privacy_rights_h: "8. Controles de usuario y servidor",
         privacy_rights_l1: "Admins de servidor pueden desactivar o resetear muchas funciones directamente con comandos del bot (por ejemplo reaction, vanity, clan tag y counting).",
-        privacy_rights_l2: "Quitar el bot detiene nuevo procesamiento en ese servidor.",
+        privacy_rights_l2: "Los miembros pueden salir de Live LFG con /lfg leave. Los administradores controlan la retencion de soporte y pueden eliminar expedientes archivados.",
         privacy_rights_l3: "Para solicitudes de borrado completo de datos, contacta a Ismaelpaulino32@gmail.com.",
 
         privacy_children_h: "9. Menores",
